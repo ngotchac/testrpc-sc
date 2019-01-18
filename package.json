@@ -4,7 +4,6 @@
   "bin": {
     "testrpc-sc": "cli.js"
   },
-  "main": "./build/ganache-core.node.cli.js",
   "scripts": {
     "start": "node cli.js",
     "build": "webpack-cli --config ./webpack/webpack.node.config.js",
