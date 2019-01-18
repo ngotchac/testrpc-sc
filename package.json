@@ -1,43 +1,41 @@
 {
   "name": "ethereumjs-testrpc-sc",
-  "version": "6.1.6",
+  "version": "6.2.5",
   "bin": {
-    "testrpc-sc": "./build/cli.node.js"
+    "testrpc-sc": "cli.js"
   },
-  "main": "./build/lib.node.js",
-  "directories": {
-    "lib": "./lib"
-  },
+  "main": "./build/ganache-core.node.cli.js",
   "scripts": {
-    "start": "./build/cli.node.js",
-    "build": "npm run build-cli && npm run build-server && npm run build-provider && npm run build-lib",
-    "build-cli": "webpack-cli --config ./webpack/cli.webpack.config.js",
-    "build-server": "webpack-cli --config ./webpack/server.webpack.config.js",
-    "build-provider": "webpack-cli --config ./webpack/provider.webpack.config.js",
-    "build-lib": "webpack-cli --config ./webpack/lib.webpack.config.js",
-    "prepare": "npm run build"
+    "start": "node cli.js",
+    "build": "webpack-cli --config ./webpack/webpack.node.config.js",
+    "docker": "docker build -t trufflesuite/ganache-cli . && docker run -p 8545:8545 trufflesuite/ganache-cli",
+    "prepublishOnly": "npm run build"
   },
+  "dependencies": {
+    "bn.js": "4.11.8",
+    "source-map-support": "0.5.9",
+    "yargs": "11.1.0"
+  },
+  "bundleDependencies": [
+    "bn.js",
+    "source-map-support",
+    "yargs"
+  ],
   "devDependencies": {
-    "bn.js": "^4.11.6",
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "ganache-core": "https://github.com/sc-forks/ganache-core-sc.git#1d13e214de1966c3634f845a48134e79dab6c269",
+    "ganache-core": "https://github.com/ngotchac/ganache-core-sc.git#efd9760099d6f1f9a22024d5e77bcabad641abcf",
+    "js-scrypt": "0.2.0",
+    "node-loader": "^0.6.0",
     "on-build-webpack": "^0.1.0",
     "prepend-file": "^1.3.1",
+    "scrypt": "6.0.3",
+    "sha3": "1.2.2",
     "shebang-loader": "0.0.1",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^3.0.6",
-    "web3": "^1.0.0-beta.30",
-    "webpack": "^4.0.1",
-    "yargs": "^11.0.0"
+    "webpack": "^4.18.0",
+    "webpack-cli": "3.1.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/trufflesuite/ganache-cli"
-  },
-  "dependencies": {
-    "source-map-support": "^0.5.3"
   },
   "license": "MIT"
 }
