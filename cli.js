@@ -5,12 +5,8 @@ require("source-map-support/register")
 
 var yargs = require("yargs");
 var pkg = require("./package.json");
-var ganache;
-try {
-  ganache = require("./lib");
-} catch(e) {
-  ganache = require("./build/ganache-core.node.cli.js");
-}
+var ganache = require("./lib");
+
 var to = ganache.to;
 var URL = require("url");
 var fs = require("fs");
