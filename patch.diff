@@ -1,0 +1,52 @@
+diff --git a/cli.js b/cli.js
+index 790aa4a..578ec1b 100755
+--- a/cli.js
++++ b/cli.js
+@@ -5,12 +5,8 @@ require("source-map-support/register")
+ 
+ var yargs = require("yargs");
+ var pkg = require("./package.json");
+-var ganache;
+-try {
+-  ganache = require("./lib");
+-} catch(e) {
+-  ganache = require("./build/ganache-core.node.cli.js");
+-}
++var ganache = require("./lib");
++
+ var to = ganache.to;
+ var URL = require("url");
+ var fs = require("fs");
+diff --git a/package.json b/package.json
+index 650a8b4..bfcea9d 100644
+--- a/package.json
++++ b/package.json
+@@ -1,10 +1,9 @@
+ {
+-  "name": "ganache-cli",
++  "name": "ethereumjs-testrpc-sc",
+   "version": "6.2.5",
+   "bin": {
+-    "ganache-cli": "cli.js"
++    "testrpc-sc": "cli.js"
+   },
+-  "main": "./build/ganache-core.node.cli.js",
+   "scripts": {
+     "start": "node cli.js",
+     "build": "webpack-cli --config ./webpack/webpack.node.config.js",
+@@ -13,6 +12,7 @@
+   },
+   "dependencies": {
+     "bn.js": "4.11.8",
++    "ganache-core": "https://github.com/ngotchac/ganache-core-sc.git#efd9760099d6f1f9a22024d5e77bcabad641abcf",
+     "source-map-support": "0.5.9",
+     "yargs": "11.1.0"
+   },
+@@ -22,7 +22,6 @@
+     "yargs"
+   ],
+   "devDependencies": {
+-    "ganache-core": "2.3.3",
+     "js-scrypt": "0.2.0",
+     "node-loader": "^0.6.0",
+     "on-build-webpack": "^0.1.0",
