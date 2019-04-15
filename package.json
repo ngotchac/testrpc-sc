@@ -1,8 +1,8 @@
 {
-  "name": "ganache-cli",
+  "name": "testrpc-sc",
   "version": "6.4.2",
   "bin": {
-    "ganache-cli": "cli.js"
+    "testrpc-sc": "cli.js"
   },
   "main": "./build/ganache-core.node.cli.js",
   "scripts": {
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "bn.js": "4.11.8",
+    "ganache-core": "https://github.com/sc-forks/ganache-core-sc#1af50241f3603a238d1ac7772f89da9345c3e662",
     "source-map-support": "0.5.9",
     "yargs": "11.1.0"
   },
@@ -22,7 +23,6 @@
     "yargs"
   ],
   "devDependencies": {
-    "ganache-core": "2.5.4",
     "js-scrypt": "0.2.0",
     "node-loader": "^0.6.0",
     "on-build-webpack": "^0.1.0",
